@@ -9,6 +9,8 @@ import java.util.List;
 @RestController
 @RequestMapping("/courses")
 public class CourseController {
+
+
     @Autowired
     private CourseRepository courseRepository;
 
@@ -19,6 +21,11 @@ public class CourseController {
 
     @PostMapping
     public Course createCourse(@RequestBody Course course) {
+        return courseRepository.save(course);
+    }
+
+    @PutMapping
+    public Course updateCourse(@RequestBody Course course) {
         return courseRepository.save(course);
     }
 }

@@ -24,4 +24,9 @@ public class StudentController {
     public Student createStudent(@RequestBody Student student) {
         return studentRepository.save(student);
     }
+
+    @GetMapping("/{id}")
+    public Student getStudentById(@PathVariable long id) {
+        return studentRepository.findById(id).orElse(null);
+    }
 }
